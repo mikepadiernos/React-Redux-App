@@ -1,10 +1,11 @@
-const nano        = require( 'cssnano' ),
-	gulp        = require( 'gulp' ),
-	stylus      = require( 'gulp-stylus' ),
-	postcss     = require( 'gulp-postcss' ),
-	nib         = require( 'nib' ),
-	rupture     = require( 'rupture' ),
-	typographic = require( 'typographic' );
+const axis        = require( 'axis' ),
+			nano        = require( 'cssnano' ),
+			gulp        = require( 'gulp' ),
+			stylus      = require( 'gulp-stylus' ),
+			postcss     = require( 'gulp-postcss' ),
+			nib         = require( 'nib' ),
+			rupture     = require( 'rupture' ),
+			typographic = require( 'typographic' );
 
 gulp.task('app', () => {
 
@@ -14,7 +15,7 @@ gulp.task('app', () => {
 
 	return gulp.src('./styl/App.styl')
 		.pipe(stylus({
-			use: [nib(), rupture(), typographic() ]
+			use: [axis(), nib(), rupture(), typographic() ]
 		}))
 		.pipe(postcss(processors))
 		.pipe(gulp.dest('./css'));
